@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#070d18" />
+  <title>iPAY — Exclusive Welcome Jackpot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070d18;
+      --emerald: #00e676;
+      --gold: #ffd166;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Outfit", system-ui, sans-serif;
+      background: #030712;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+    }
+
+    .frame {
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100dvh;
+      position: relative;
+      background: var(--bg);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+      overflow-x: hidden;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 90% 45% at 50% -5%, rgba(0, 230, 118, 0.16), transparent 55%),
+        radial-gradient(ellipse 55% 35% at 100% 40%, rgba(0, 180, 255, 0.07), transparent 50%),
+        radial-gradient(ellipse 50% 30% at 0% 75%, rgba(255, 209, 102, 0.06), transparent 50%);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 0 16px 120px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0 8px;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 32px;
+      width: auto;
+      display: block;
+      background: transparent;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--emerald);
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      white-space: nowrap;
+    }
+
+    .trust-pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4px 0 12px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .badge--gold { color: var(--gold); border-color: rgba(255, 209, 102, 0.35); }
+    .badge--emerald { color: var(--emerald); border-color: rgba(0, 230, 118, 0.3); }
+
+    .hero h1 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.16), 0 4px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .hero p strong { color: var(--gold); font-weight: 800; }
+
+    /* Wheel */
+    .wheel-wrap {
+      margin: 8px 0 20px;
+      padding: 20px 12px 18px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      text-align: center;
+    }
+
+    .wheel-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .wheel-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: min(320px, 82vw);
+      height: min(320px, 82vw);
+      margin: 0 auto;
+      filter: drop-shadow(0 0 25px rgba(234, 179, 8, 0.4));
+    }
+
+    #wheel-plate {
+      display: block;
+      width: 320px;
+      height: 320px;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 25px rgba(234, 179, 8, 0.35));
+      transform: rotate(0deg);
+      transition: transform 4500ms ease-out;
+      will-change: transform;
+      z-index: 1;
+    }
+
+    .pointer-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      place-items: center;
+      width: 70px;
+      height: 70px;
+      padding: 0;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      color: #ffd700;
+      border: 3px solid #ffd700;
+      border-radius: 50%;
+      outline: 3px solid #9a6700;
+      background: radial-gradient(circle at 32% 25%, #45f29a, #00a85a 52%, #006b3b 100%);
+      box-shadow:
+        0 0 0 4px rgba(3, 18, 11, 0.9),
+        inset 0 3px 8px rgba(255, 255, 255, 0.38),
+        0 8px 18px rgba(0, 0, 0, 0.55),
+        0 0 18px rgba(0, 230, 118, 0.45);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+
+    .pointer-button:active {
+      transform: translate(-50%, -50%) scale(0.94);
+    }
+
+    .pointer-arrow {
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 42px;
+      height: 54px;
+      transform: translateX(-50%);
+      z-index: 6;
+      pointer-events: none;
+      filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.65));
+    }
+
+    .spin-hint {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .spin-hint strong { color: var(--emerald); }
+
+    /* —— Editorial mid-page —— */
+    .editorial {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin: 0 0 28px;
+    }
+
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Ticker */
+    .ticker {
+      position: relative;
+      overflow: hidden;
+      padding: 10px 0;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 230, 118, 0.22);
+      background: rgba(0, 230, 118, 0.06);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      gap: 0;
+      animation: marquee 35s linear infinite;
+      will-change: transform;
+    }
+
+    .ticker-track:hover { animation-play-state: paused; }
+
+    .ticker-item {
+      flex-shrink: 0;
+      padding: 0 18px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+    }
+
+    .ticker-item em {
+      font-style: normal;
+      color: var(--emerald);
+      font-weight: 700;
+    }
+
+    .ticker-item .ago {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .ticker-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulse 1.4s ease-in-out infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Section chrome */
+    .sec-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--emerald);
+      margin-bottom: 8px;
+    }
+
+    .sec-label::before {
+      content: "";
+      width: 14px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--emerald);
+      box-shadow: 0 0 8px rgba(0, 230, 118, 0.5);
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(255, 209, 102, 0.35);
+      background: rgba(255, 209, 102, 0.08);
+      box-shadow: 0 0 16px rgba(255, 209, 102, 0.1);
+    }
+
+    .sec-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .sec-sub {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    /* Trust strip (lianhe) — compact */
+    .trust-strip {
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    .trust-strip img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.75rem;
+      opacity: 0.95;
+    }
+
+    /* How it works */
+    .flow-sec {
+      padding: 18px 14px 16px;
+    }
+
+    .flow-frame {
+      width: 92%;
+      margin: 0 auto;
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 230, 118, 0.28);
+      background:
+        linear-gradient(180deg, rgba(0, 230, 118, 0.06), rgba(0, 0, 0, 0.25));
+      box-shadow:
+        0 0 24px rgba(0, 230, 118, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        inset 0 -8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .flow-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Product / phone */
+    .product-sec {
+      padding: 18px 14px 8px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-sec .sec-label,
+    .product-sec .sec-title,
+    .product-sec .sec-sub {
+      text-align: left;
+    }
+
+    .product-visual {
+      position: relative;
+      margin: 4px auto 0;
+      max-width: 300px;
+      padding-bottom: 18px;
+    }
+
+    .product-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.45));
+      animation: product-breathe 4.5s ease-in-out infinite;
+    }
+
+    .product-glow {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 78%;
+      height: 42%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(0, 230, 118, 0.28) 0%, rgba(0, 180, 255, 0.08) 40%, transparent 70%);
+      filter: blur(8px);
+      z-index: 0;
+      animation: glow-breathe 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes product-breathe {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes glow-breathe {
+      0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+    }
+
+    /* Settlement & Security bento */
+    .settle-sec {
+      padding: 18px 14px 16px;
+    }
+
+    .settle-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 4px 0 14px;
+    }
+
+    .settle-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .settle-chip strong {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .bento {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .bento-tile {
+      padding: 8px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .bento-tile .tile-cap {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding: 0 2px;
+    }
+
+    .bento-tile img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .bento-tile--shield {
+      text-align: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 4px 8px 0;
+    }
+
+    .bento-tile--shield .tile-cap {
+      text-align: center;
+    }
+
+    .bento-tile--shield .shield-wrap {
+      position: relative;
+      max-width: 200px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .bento-tile--shield .shield-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 8% 12%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 230, 118, 0.22) 0%, transparent 70%);
+      filter: blur(10px);
+      z-index: 0;
+      pointer-events: none;
+      animation: glow-breathe 4.5s ease-in-out infinite;
+    }
+
+    .bento-tile--shield img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 20px rgba(0, 230, 118, 0.2));
+    }
+
+    .settle-footnote {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .settle-footnote span {
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    /* Footer social — horizontal */
+    .site-footer {
+      padding: 8px 4px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .site-footer .copy {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .social-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .social-row a {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.15s ease, box-shadow 0.15s;
+    }
+
+    .social-row a:active {
+      transform: scale(0.94);
+      box-shadow: 0 0 14px rgba(0, 230, 118, 0.3);
+    }
+
+    .social-row img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    /* Sticky CTA */
+    .sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      padding: 12px 16px calc(14px + var(--safe-bottom));
+      background: linear-gradient(180deg, transparent, rgba(7, 13, 24, 0.94) 30%);
+      pointer-events: none;
+    }
+
+    .sticky .inner {
+      max-width: 430px;
+      margin: 0 auto;
+      pointer-events: auto;
+    }
+
+    .cta {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #04140a;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00e676 0%, #00c853 50%, #00e676 100%);
+      background-size: 200% 200%;
+      box-shadow: 0 0 20px rgba(0, 230, 118, 0.35), 0 8px 24px rgba(0, 0, 0, 0.4);
+      animation: cta-shift 3s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.28) 50%, transparent 60%);
+      transform: translateX(-130%);
+      animation: sheen 2.8s ease-in-out infinite;
+    }
+
+    @keyframes sheen {
+      0%, 45% { transform: translateX(-130%); }
+      75%, 100% { transform: translateX(130%); }
+    }
+
+    @keyframes cta-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .cta:active { transform: scale(0.98); }
+    .cta:disabled { opacity: 0.72; cursor: wait; }
+
+    .cta.is-claim {
+      color: #1a1200;
+      background: linear-gradient(135deg, #ffd166 0%, #ffb020 50%, #ffd166 100%);
+      background-size: 200% 200%;
+      box-shadow: 0 0 24px rgba(255, 209, 102, 0.45), 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .sticky-timer {
+      display: none;
+      margin-top: 5px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 0 8px rgba(255, 209, 102, 0.55);
+    }
+
+    .sticky-timer.is-visible { display: block; }
+
+    /* Modal */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(3, 8, 16, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      width: min(380px, 100%);
+      position: relative;
+      margin: auto;
+      background: transparent;
+      border: none;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+      transform: translateY(20px) scale(0.95);
+      transition: transform 0.4s cubic-bezier(0.12, 0.8, 0.32, 1);
+      overflow: visible;
+    }
+
+    .overlay.is-open .modal { transform: none; }
+
+    .modal-art {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 1rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .modal-hotspot {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      /* Aligns to in-image CTA (~75%–85% from top) */
+      top: 74%;
+      height: 12%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 3;
+      border: none;
+      background: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 4;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    #fxCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="content">
+      <header class="header">
+        <img class="logo" src="./imgs/logo.png" alt="iPAY" height="32" />
+        <span class="trust-pill">Verified</span>
+      </header>
+
+      <section class="hero">
+        <div class="badge-row">
+          <span class="badge badge--emerald">⚡ OFFICIAL UPI DIGITAL WALLET &amp; PAYMENT GATEWAY</span>
+        </div>
+        <h1>iPAY — Secure UPI Payments &amp; Digital Wallet</h1>
+        <p>Get started with iPAY. Spin the lucky wheel to claim your <strong style="color: #ffd166;">Welcome Signup Bonus up to ₹500</strong>. Instant zero-fee payout to your bank.</p>
+      </section>
+
+      <section class="wheel-wrap" id="wheelSection">
+        <div class="wheel-kicker">Lucky Draw · One Spin Free</div>
+        <div class="wheel-stage">
+          <img
+            id="wheel-plate"
+            src="imgs/zhuanpan.png"
+            class="wheel-plate"
+            alt="Prize wheel"
+          />
+          <svg class="pointer-arrow" viewBox="0 0 42 54" aria-hidden="true">
+            <path d="M21 52 3 12C1 7 5 2 10 2h22c5 0 9 5 7 10L21 52Z" fill="#ffd700" stroke="#9a6700" stroke-width="2" />
+            <path d="M21 41 13 18h16L21 41Z" fill="#fff3a6" opacity="0.75" />
+          </svg>
+          <button type="button" class="pointer-button" id="hubBtn" aria-label="Spin the wheel">SPIN</button>
+        </div>
+        <p class="spin-hint">Tap <strong>SPIN</strong> to unlock your jackpot range</p>
+      </section>
+
+      <div class="editorial">
+        <!-- Live payout ticker -->
+        <div class="ticker" aria-label="Live payout feed">
+          <div class="ticker-track" id="tickerTrack">
+          </div>
+        </div>
+
+        <!-- How it works — first after ticker -->
+        <section class="glass-panel flow-sec">
+          <span class="pill-label">✦ Instant Process</span>
+          <div class="flow-frame">
+            <img src="./imgs/liucheng.png" alt="Three steps: spin, install, withdraw" />
+          </div>
+        </section>
+
+        <!-- Product showcase -->
+        <section class="glass-panel product-sec">
+          <div class="sec-label">Live App</div>
+          <h2 class="sec-title">Direct UPI Settlement</h2>
+          <p class="sec-sub">Instant zero-fee transfer to Google Pay, PhonePe &amp; Paytm.</p>
+          <div class="product-visual">
+            <div class="product-glow" aria-hidden="true"></div>
+            <img src="./imgs/shouji.png" alt="iPAY app instant disbursal preview" />
+          </div>
+        </section>
+
+        <!-- Settlement & Security — lianhe opens the trust block -->
+        <div class="glass-panel trust-strip">
+          <div class="sec-label">AUTHORIZED PARTNERSHIP</div>
+          <h2 class="sec-title">Official Settlement &amp; Payout Hub</h2>
+          <p class="sec-sub">Seamlessly convert game points and app rewards into direct cash. Backed by bank-monitored gateways and global payout partners.</p>
+          <img src="./imgs/lianhe.png" alt="Official Settlement Hub" />
+        </div>
+
+        <section class="glass-panel settle-sec">
+          <div class="sec-label">Compliance</div>
+          <h2 class="sec-title">Official Settlement &amp; Security</h2>
+          <p class="sec-sub">Bank-monitored corridors and hardened encryption keep every payout auditable.</p>
+          <div class="settle-meta">
+            <span class="settle-chip"><strong>RBI</strong> Monitored</span>
+            <span class="settle-chip"><strong>256-bit</strong> Bank Grade Encryption</span>
+            <span class="settle-chip"><strong>NPCI</strong> UPI Rails</span>
+          </div>
+          <div class="bento">
+            <div class="bento-tile">
+              <div class="tile-cap">Partner Corridors</div>
+              <img src="./imgs/hezuofang.png" alt="Official settlement partners" />
+            </div>
+            <div class="bento-tile bento-tile--shield">
+              <div class="tile-cap">Security Seal</div>
+              <div class="shield-wrap">
+                <img src="./imgs/dunpai.png" alt="100% Secured shield" />
+              </div>
+            </div>
+          </div>
+          <p class="settle-footnote">Verified partner corridors · <span>Bank-grade security seal</span></p>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <p class="copy">Download APK · 100% Safe · RBI &amp; Govt Monitored<br />© iPAY Official Settlement Hub</p>
+        <nav class="social-row" aria-label="Social links">
+          <a id="linkWapp" href="#" target="_blank" rel="noopener" title="WhatsApp"><img src="./imgs/wapp.png" alt="WhatsApp" /></a>
+          <a id="linkTel" href="#" target="_blank" rel="noopener" title="Telegram"><img src="./imgs/tel.png" alt="Telegram" /></a>
+          <a id="linkFb" href="#" target="_blank" rel="noopener" title="Facebook"><img src="./imgs/fb.png" alt="Facebook" /></a>
+          <a id="linkIns" href="#" target="_blank" rel="noopener" title="Instagram"><img src="./imgs/ins.png" alt="Instagram" /></a>
+          <a id="linkTw" href="#" target="_blank" rel="noopener" title="X"><img src="./imgs/tw.png" alt="X" /></a>
+          <a id="linkYtb" href="#" target="_blank" rel="noopener" title="YouTube"><img src="./imgs/ytb.png" alt="YouTube" /></a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <button type="button" class="cta" id="mainCta" data-action="claim">SPIN TO UNLOCK BONUS</button>
+      <div class="sticky-timer" id="stickyTimer" aria-live="off"></div>
+    </div>
+  </div>
+
+  <canvas id="fxCanvas"></canvas>
+
+  <div class="overlay" id="modal" role="dialog" aria-modal="true" aria-label="Reward unlocked">
+    <div class="modal">
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <img class="modal-art" src="./imgs/texiao.png" alt="Congratulations — Welcome Cash unlocked" />
+      <button type="button" class="modal-hotspot" id="modalHotspot" data-download="true" data-action="install" aria-label="Install app and claim"></button>
+    </div>
+  </div>
+
+  <script>
+    localStorage.clear();
+
+    const DOWNLOAD_CONFIG = {
+      downloadUrl:
+        "https://download.ipaynow.net/9246444d94f081e3549803b928260f56/cfcd208495d565ef66e7dff9f98764da/5ba785b2793b4e2892eccf5a073f1e55/ipay_900032.apk",
+      social: {
+        whatsapp: "https://wa.me/919999999999",
+        telegram: "https://t.me/ipay_official",
+        facebook: "https://facebook.com/",
+        instagram: "https://instagram.com/",
+        twitter: "https://twitter.com/",
+        youtube: "https://youtube.com/"
+      },
+      _locking: false,
+      start() {
+        if (this._locking) return;
+        this._locking = true;
+        window.location.href = this.downloadUrl;
+        // Allow a later retry if navigation is cancelled / blocked
+        setTimeout(() => { this._locking = false; }, 1600);
+      }
+    };
+
+    const socialMap = {
+      linkWapp: DOWNLOAD_CONFIG.social.whatsapp,
+      linkTel: DOWNLOAD_CONFIG.social.telegram,
+      linkFb: DOWNLOAD_CONFIG.social.facebook,
+      linkIns: DOWNLOAD_CONFIG.social.instagram,
+      linkTw: DOWNLOAD_CONFIG.social.twitter,
+      linkYtb: DOWNLOAD_CONFIG.social.youtube
+    };
+    Object.entries(socialMap).forEach(([id, href]) => {
+      const el = document.getElementById(id);
+      if (el) el.href = href;
+    });
+
+    /* Generate a fresh, duplicated payout feed for a seamless loop. */
+    (function initTicker() {
+      const track = document.getElementById("tickerTrack");
+      const names = ["Amit", "Priya", "Rahul", "Ananya", "Vikram", "Neha", "Arjun", "Kavya", "Rohan", "Meera", "Ishaan", "Pooja", "Dev", "Sana", "Karan", "Diya", "Aditya", "Riya"];
+      const amounts = [50, 95, 120, 200, 300, 500];
+      const methods = ["UPI", "PhonePe", "Paytm", "bank transfer"];
+      const ago = ["just now", "1 min ago", "2 min ago", "4 min ago", "7 min ago", "10 min ago"];
+      const records = Array.from({ length: 10 }, () => {
+        const name = names[Math.floor(Math.random() * names.length)];
+        const first = String(Math.floor(60 + Math.random() * 40));
+        const last = String(Math.floor(10 + Math.random() * 90));
+        const amount = amounts[Math.floor(Math.random() * amounts.length)];
+        const method = methods[Math.floor(Math.random() * methods.length)];
+        const time = ago[Math.floor(Math.random() * ago.length)];
+        return `<span class="ticker-item"><span class="ticker-dot"></span>User +91 ${first}***${last} (${name}) withdrew <em>₹${amount}</em> via ${method} <span class="ago">${time}</span></span>`;
+      }).join("");
+      track.innerHTML = records + records;
+    })();
+
+    function goDownload() {
+      DOWNLOAD_CONFIG.start();
+    }
+
+    const mainCta = document.getElementById("mainCta");
+    const hubBtn = document.getElementById("hubBtn");
+    const wheelPlate = document.getElementById("wheel-plate");
+    const modal = document.getElementById("modal");
+    const stickyTimer = document.getElementById("stickyTimer");
+    const STORAGE_SPUN = "hasSpun";
+    const STORAGE_EXPIRE = "bonus_expire_at";
+    const TARGET_DEGREES = 225;
+
+    let rotation = 0;
+    let spinning = false;
+    let won = localStorage.getItem(STORAGE_SPUN) === "true";
+    let expireTime = Number(localStorage.getItem(STORAGE_EXPIRE)) || 0;
+
+    function updateCountdown() {
+      if (!won) return;
+      const remaining = Math.max(0, expireTime - Date.now());
+      const seconds = Math.floor(remaining / 1000);
+      const formatted = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
+      stickyTimer.textContent = `BONUS EXPIRES IN ${formatted}`;
+    }
+
+    function setClaimState(showModal) {
+      won = true;
+      mainCta.textContent = "CLAIM ₹95";
+      mainCta.classList.add("is-claim");
+      mainCta.removeAttribute("data-action");
+      stickyTimer.classList.add("is-visible");
+      hubBtn.setAttribute("aria-label", "Claim ₹95");
+      hubBtn.removeAttribute("data-download");
+      hubBtn.removeAttribute("data-action");
+      if (showModal) openModal();
+    }
+
+    function spin() {
+      if (spinning) return;
+      spinning = true;
+      mainCta.disabled = true;
+      hubBtn.disabled = true;
+      mainCta.textContent = "SPINNING…";
+
+      // Reset and trigger CSS rotation (5 spins + 248 degrees, landing precisely on ₹95).
+      wheelPlate.style.transition = "none";
+      wheelPlate.style.transform = "rotate(0deg)";
+      void wheelPlate.offsetWidth; // Trigger reflow.
+      wheelPlate.style.transition = "transform 4500ms cubic-bezier(0.15, 0.9, 0.2, 1)";
+      wheelPlate.style.transform = "rotate(2048deg)";
+
+      // Show the reward precisely after the wheel has settled.
+      setTimeout(() => {
+        spinning = false;
+        onWin();
+        openModal();
+      }, 4600);
+    }
+
+    function triggerSpin() {
+      document.getElementById("wheelSection").scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(spin, 360);
+    }
+
+    mainCta.addEventListener("click", triggerSpin);
+    hubBtn.addEventListener("click", spin);
+    wheelPlate.addEventListener("click", (event) => {
+      if (event.target !== hubBtn) spin();
+    });
+
+    function onWin() {
+      mainCta.disabled = false;
+      hubBtn.disabled = false;
+      expireTime = Date.now() + 15 * 60 * 1000;
+      localStorage.setItem(STORAGE_SPUN, "true");
+      localStorage.setItem(STORAGE_EXPIRE, String(expireTime));
+      setClaimState(false);
+      updateCountdown();
+      window.setInterval(updateCountdown, 1000);
+      burstFX();
+    }
+    function openModal() { modal.classList.add("is-open"); }
+    function closeModal() { modal.classList.remove("is-open"); }
+    document.getElementById("modalClose").addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+    document.getElementById("modalHotspot").addEventListener("click", goDownload);
+
+    /* Confetti / coins */
+    const fx = document.getElementById("fxCanvas");
+    const fctx = fx.getContext("2d");
+    let particles = [];
+    let fxAnim = null;
+
+    function resizeFx() {
+      fx.width = window.innerWidth * devicePixelRatio;
+      fx.height = window.innerHeight * devicePixelRatio;
+      fx.style.width = window.innerWidth + "px";
+      fx.style.height = window.innerHeight + "px";
+      fctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    }
+    window.addEventListener("resize", resizeFx);
+    resizeFx();
+
+    function burstFX() {
+      particles = [];
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const ox = w / 2;
+      const oy = h * 0.36;
+      for (let i = 0; i < 80; i++) {
+        const a = (Math.PI * 2 * i) / 80 + Math.random() * 0.35;
+        const sp = 4 + Math.random() * 10;
+        particles.push({
+          x: ox, y: oy,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 5,
+          r: 4 + Math.random() * 7,
+          rot: Math.random() * Math.PI * 2,
+          vr: (Math.random() - 0.5) * 0.35,
+          life: 1,
+          decay: 0.007 + Math.random() * 0.01,
+          kind: Math.random() > 0.4 ? "coin" : "bit",
+          color: ["#00e676", "#ffd166", "#00c853", "#fff", "#4fc3f7"][i % 5]
+        });
+      }
+      if (fxAnim) cancelAnimationFrame(fxAnim);
+      const loop = () => {
+        fctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        let alive = false;
+        for (const p of particles) {
+          if (p.life <= 0) continue;
+          alive = true;
+          p.vy += 0.22;
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vx *= 0.99;
+          p.rot += p.vr;
+          p.life -= p.decay;
+          fctx.save();
+          fctx.globalAlpha = Math.max(0, p.life);
+          fctx.translate(p.x, p.y);
+          fctx.rotate(p.rot);
+          if (p.kind === "coin") {
+            fctx.beginPath();
+            fctx.ellipse(0, 0, p.r, p.r * 0.72, 0, 0, Math.PI * 2);
+            fctx.fillStyle = "#ffd166";
+            fctx.fill();
+            fctx.strokeStyle = "#c9a227";
+            fctx.lineWidth = 1.4;
+            fctx.stroke();
+            fctx.fillStyle = "#8a6d1a";
+            fctx.font = `bold ${Math.max(8, p.r)}px Outfit, sans-serif`;
+            fctx.textAlign = "center";
+            fctx.textBaseline = "middle";
+            fctx.fillText("₹", 0, 1);
+          } else {
+            fctx.fillStyle = p.color;
+            fctx.fillRect(-p.r * 0.4, -p.r, p.r * 0.8, p.r * 2);
+          }
+          fctx.restore();
+        }
+        if (alive) fxAnim = requestAnimationFrame(loop);
+        else fctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      };
+      fxAnim = requestAnimationFrame(loop);
+    }
+  </script>
+</body>
+</html>
