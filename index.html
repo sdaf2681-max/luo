@@ -900,6 +900,46 @@
     const TELEGRAM_CHANNEL_URL = "https://t.me/+wGJYJh0fz505NGMx";
     const DEV_UNLIMITED_SPIN = true;
 
+    // Analytics is deliberately best-effort: a failed report must never affect the page.
+    function trackEvent(eventName) {
+      try {
+        const allowed = ["page_view", "spin_click", "tg_click"];
+        if (!allowed.includes(eventName)) return;
+        const query = new URLSearchParams(window.location.search);
+        const payload = {
+          event: eventName,
+          url: window.location.href,
+          ad: query.get("ad") || "",
+          cid: query.get("cid") || "",
+          utm_campaign: query.get("utm_campaign") || "",
+          utm_source: query.get("utm_source") || "",
+          screen: `${window.screen.width}x${window.screen.height}`,
+          referrer: document.referrer || ""
+        };
+        const body = JSON.stringify(payload);
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon("track.php", new Blob([body], { type: "application/json" }));
+        } else if (window.fetch) {
+          fetch("track.php", {
+            method: "POST",
+            body,
+            headers: { "Content-Type": "application/json" },
+            keepalive: true,
+            credentials: "same-origin"
+          }).catch(() => {});
+        }
+      } catch (_) {}
+    }
+
+    try {
+      if (!sessionStorage.getItem("arzu_page_view_sent")) {
+        sessionStorage.setItem("arzu_page_view_sent", "1");
+        trackEvent("page_view");
+      }
+    } catch (_) {
+      trackEvent("page_view");
+    }
+
     /* Duplicate the approved platform updates for a seamless loop. */
     (function initTicker() {
       const track = document.getElementById("tickerTrack");
@@ -914,6 +954,7 @@
     })();
 
     function goTelegram() {
+      trackEvent("tg_click");
       window.location.href = TELEGRAM_CHANNEL_URL;
     }
 
@@ -958,6 +999,7 @@
     }
 
     function spin() {
+      trackEvent("spin_click");
       if (!DEV_UNLIMITED_SPIN && won) {
         goTelegram();
         return;
