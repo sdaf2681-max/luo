@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#070d18" />
-    <title>ArzuBee — Exclusive Welcome Member Rewards</title>
+    <title>ArzuBee — Exclusive Member Rewards</title>
   <link rel="icon" type="image/png" href="./imgs/tubiao.png" />
   <link rel="apple-touch-icon" href="./imgs/tubiao.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -809,28 +809,28 @@
 
       <section class="hero">
         <div class="badge-row">
-          <span class="badge badge--emerald">⚡ OFFICIAL UPI DIGITAL WALLET &amp; PAYMENT GATEWAY</span>
+          <span class="badge badge--emerald">⚡ OFFICIAL COMMUNITY REWARDS &amp; MEMBER PERKS</span>
         </div>
-        <h1>ArzuBee — Secure UPI Payments &amp; Digital Wallet</h1>
-        <p>Get started with ArzuBee. Unlock your welcome gift box to claim <strong>Member Rewards up to ₹500</strong>. Fast UPI transfer support for verified members.</p>
+        <h1>ArzuBee — Member Rewards &amp; UPI Perks Hub</h1>
+        <p>Get started with ArzuBee. Unlock your member rewards to access <strong>Member Rewards up to ₹500</strong>. Fast UPI transfer support for verified members.</p>
       </section>
 
       <section class="wheel-wrap" id="wheelSection">
-        <div class="wheel-kicker">Welcome Gift · One Free Unlock</div>
+        <div class="wheel-kicker">Member Rewards · One Free Unlock</div>
         <div class="wheel-stage">
           <img
             id="wheel-plate"
             src="imgs/zhuanpan.png"
             class="wheel-plate"
-            alt="Prize wheel"
+            alt="Member rewards wheel"
           />
           <svg class="pointer-arrow" viewBox="0 0 42 54" aria-hidden="true">
             <path d="M21 52 3 12C1 7 5 2 10 2h22c5 0 9 5 7 10L21 52Z" fill="#ffd700" stroke="#9a6700" stroke-width="2" />
             <path d="M21 41 13 18h16L21 41Z" fill="#fff3a6" opacity="0.75" />
           </svg>
-          <button type="button" class="pointer-button" id="hubBtn" aria-label="Spin the wheel">SPIN</button>
+          <button type="button" class="pointer-button" id="hubBtn" aria-label="Claim member rewards">CLAIM</button>
         </div>
-        <p class="spin-hint">Tap <strong>SPIN</strong> to reveal your welcome reward tier</p>
+        <p class="spin-hint">Tap <strong>CLAIM</strong> to reveal your member reward tier</p>
       </section>
 
       <div class="editorial">
@@ -844,7 +844,7 @@
         <section class="glass-panel flow-sec">
           <span class="pill-label">✦ Instant Process</span>
           <div class="flow-frame">
-            <img src="./imgs/liucheng.png" alt="Three steps: spin, join, claim" />
+            <img src="./imgs/liucheng.png" alt="Three steps: unlock, join, claim" />
           </div>
         </section>
 
@@ -882,14 +882,14 @@
       </div>
 
       <footer class="site-footer">
-        <p class="copy">Official Community Channel · Verified &amp; Encrypted<br />© ArzuBee Rewards Hub</p>
+        <p class="copy">Official Community Channel · Verified &amp; Encrypted<br />© ArzuBee Member Rewards Hub</p>
       </footer>
     </div>
   </div>
 
   <div class="sticky">
     <div class="inner">
-      <button type="button" class="cta" id="mainCta" data-action="claim">UNLOCK WELCOME BONUS</button>
+      <button type="button" class="cta" id="mainCta" data-action="claim">UNLOCK MEMBER REWARDS</button>
       <div class="sticky-timer" id="stickyTimer" aria-live="off"></div>
     </div>
   </div>
@@ -899,7 +899,7 @@
   <div class="overlay" id="modal" role="dialog" aria-modal="true" aria-label="Reward unlocked">
     <div class="modal">
       <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
-      <img class="modal-art" src="./imgs/texiao.png" alt="Congratulations — Welcome Bonus unlocked" />
+      <img class="modal-art" src="./imgs/texiao.png" alt="ArzuBee India Exclusive 500 Points Member Rewards" />
       <button type="button" class="modal-hotspot" id="modalHotspot" aria-label="Claim on Telegram"></button>
     </div>
   </div>
@@ -956,10 +956,10 @@
     (function initTicker() {
       const track = document.getElementById("tickerTrack");
       const updates = [
-        "Welcome Bonus Pool Active · Unlock up to ₹500",
-        "256-Bit SSL Encrypted · Fast UPI Payout Support",
+        "Member Rewards Pool Active · Unlock up to ₹500",
+        "256-Bit SSL Encrypted · Fast UPI Reward Support",
         "Official Telegram Community · 24/7 Member Support",
-        "Exclusive New Member Spin · Instant Reward Activation"
+        "Exclusive New Member Rewards · Instant Activation"
       ];
       const records = updates.map((update) => `<span class="ticker-item"><span class="ticker-dot"></span>${update}</span>`).join("");
       track.innerHTML = records + records;
@@ -1004,7 +1004,7 @@
       mainCta.classList.add("is-claim");
       mainCta.removeAttribute("data-action");
       stickyTimer.classList.add("is-visible");
-      hubBtn.setAttribute("aria-label", DEV_UNLIMITED_SPIN ? "Spin the wheel" : "Claim ₹95");
+      hubBtn.setAttribute("aria-label", DEV_UNLIMITED_SPIN ? "Claim member rewards" : "Claim ₹95");
       hubBtn.removeAttribute("data-download");
       hubBtn.removeAttribute("data-action");
       if (showModal) openModal();
@@ -1020,7 +1020,7 @@
       spinning = true;
       mainCta.disabled = true;
       hubBtn.disabled = true;
-      mainCta.textContent = "SPINNING…";
+      mainCta.textContent = "UNLOCKING…";
 
       // Accumulate clockwise turns so repeated demo spins never snap back to zero.
       rotation = rotation - (rotation % 360) + 360 * 5 + 248;
