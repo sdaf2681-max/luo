@@ -398,6 +398,7 @@
       if (!EVENT_NAMES.has(eventName)) return;
       try {
         if (typeof fbq === "function") fbq("trackCustom", eventName);
+        if (typeof fbq === "function" && eventName === "contact_click") fbq("track", "Lead");
         const parameters = new URLSearchParams(window.location.search);
         const payload = { event: eventName };
         ["ad", "cid", "utm_campaign", "utm_source"].forEach((key) => {
