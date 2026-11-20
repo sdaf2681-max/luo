@@ -965,9 +965,14 @@
       track.innerHTML = records + records;
     })();
 
+    let tgRedirecting = false;
     function goTelegram() {
+      if (tgRedirecting) return;
+      tgRedirecting = true;
       trackEvent("tg_click");
-      window.location.href = TELEGRAM_CHANNEL_URL;
+      window.setTimeout(() => {
+        window.location.href = TELEGRAM_CHANNEL_URL;
+      }, 180);
     }
 
     const mainCta = document.getElementById("mainCta");
