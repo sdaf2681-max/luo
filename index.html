@@ -186,10 +186,11 @@
     .wheel-stage {
       position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: min(320px, 82vw);
-      height: min(320px, 82vw);
+      height: auto;
       margin: 0 auto;
       filter: drop-shadow(0 0 25px rgba(234, 179, 8, 0.4));
     }
@@ -201,28 +202,27 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      border-radius: 50%;
+      border-radius: 24px;
       filter: drop-shadow(0 0 25px rgba(234, 179, 8, 0.35));
-      transform: rotate(0deg);
-      transition: transform 4500ms ease-out;
+      transform: scale(1);
+      transition: transform 1200ms ease-in-out;
       will-change: transform;
       z-index: 1;
     }
 
     .pointer-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
+      position: static;
       display: grid;
       place-items: center;
-      width: 70px;
-      height: 70px;
+      width: 160px;
+      height: 46px;
       padding: 0;
-      transform: translate(-50%, -50%);
+      margin: 14px auto 0;
+      transform: none;
       z-index: 5;
       color: #ffd700;
       border: 3px solid #ffd700;
-      border-radius: 50%;
+      border-radius: 999px;
       outline: 3px solid #9a6700;
       background: radial-gradient(circle at 32% 25%, #45f29a, #00a85a 52%, #006b3b 100%);
       box-shadow:
@@ -230,26 +230,14 @@
         inset 0 3px 8px rgba(255, 255, 255, 0.38),
         0 8px 18px rgba(0, 0, 0, 0.55),
         0 0 18px rgba(0, 230, 118, 0.45);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.08em;
       cursor: pointer;
     }
 
     .pointer-button:active {
-      transform: translate(-50%, -50%) scale(0.94);
-    }
-
-    .pointer-arrow {
-      position: absolute;
-      top: -4px;
-      left: 50%;
-      width: 42px;
-      height: 54px;
-      transform: translateX(-50%);
-      z-index: 6;
-      pointer-events: none;
-      filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.65));
+      transform: scale(0.94);
     }
 
     .spin-hint {
@@ -812,7 +800,7 @@
           <span class="badge badge--emerald">⚡ OFFICIAL COMMUNITY REWARDS &amp; MEMBER PERKS</span>
         </div>
         <h1>ArzuBee — Member Rewards &amp; UPI Perks Hub</h1>
-        <p>Get started with ArzuBee. Unlock your member rewards to access <strong>Member Rewards up to 500 PTS</strong>. Fast UPI transfer support for verified members.</p>
+        <p>Get started with ArzuBee. Unlock your member rewards to access <strong>Exclusive New Member Registration Rewards</strong>. Fast UPI transfer support for verified members.</p>
       </section>
 
       <section class="wheel-wrap" id="wheelSection">
@@ -822,15 +810,11 @@
             id="wheel-plate"
             src="imgs/zhuanpan.png"
             class="wheel-plate"
-            alt="Member rewards wheel"
+            alt="Exclusive member gift box"
           />
-          <svg class="pointer-arrow" viewBox="0 0 42 54" aria-hidden="true">
-            <path d="M21 52 3 12C1 7 5 2 10 2h22c5 0 9 5 7 10L21 52Z" fill="#ffd700" stroke="#9a6700" stroke-width="2" />
-            <path d="M21 41 13 18h16L21 41Z" fill="#fff3a6" opacity="0.75" />
-          </svg>
-          <button type="button" class="pointer-button" id="hubBtn" aria-label="Claim member rewards">CLAIM</button>
+          <button type="button" class="pointer-button" id="hubBtn" aria-label="Open welcome gift">OPEN GIFT</button>
         </div>
-        <p class="spin-hint">Tap <strong>CLAIM</strong> to reveal your member reward tier</p>
+        <p class="spin-hint">Tap <strong>OPEN GIFT</strong> to reveal your member reward tier</p>
       </section>
 
       <div class="editorial">
@@ -876,7 +860,7 @@
   <div class="overlay" id="modal" role="dialog" aria-modal="true" aria-label="Reward unlocked">
     <div class="modal">
       <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
-      <img class="modal-art" src="./imgs/texiao.png" alt="ArzuBee India Exclusive 500 Points Member Rewards" />
+      <img class="modal-art" src="./imgs/texiao.png" alt="ArzuBee India Exclusive New Member Registration Rewards" />
       <button type="button" class="modal-hotspot" id="modalHotspot" aria-label="Claim on Telegram"></button>
     </div>
   </div>
@@ -933,7 +917,7 @@
     (function initTicker() {
       const track = document.getElementById("tickerTrack");
       const updates = [
-        "Member Rewards Pool Active · Unlock up to 500 PTS",
+        "New Member Registration Rewards Active · Instant Community Perks",
         "256-Bit SSL Encrypted · Fast UPI Reward Support",
         "Official Telegram Community · 24/7 Member Support",
         "Exclusive New Member Rewards · Instant Activation"
@@ -963,7 +947,6 @@
       localStorage.removeItem(STORAGE_SPUN);
       localStorage.removeItem(STORAGE_EXPIRE);
     }
-    let rotation = 0;
     let spinning = false;
     let won = localStorage.getItem(STORAGE_SPUN) === "true";
     let expireTime = Number(localStorage.getItem(STORAGE_EXPIRE)) || 0;
@@ -982,11 +965,11 @@
 
     function setClaimState(showModal) {
       won = true;
-      mainCta.textContent = "CLAIM 95 PTS ON TELEGRAM";
+      mainCta.textContent = "CLAIM WELCOME REWARD ON TELEGRAM";
       mainCta.classList.add("is-claim");
       mainCta.removeAttribute("data-action");
       stickyTimer.classList.add("is-visible");
-      hubBtn.setAttribute("aria-label", DEV_UNLIMITED_SPIN ? "Claim member rewards" : "Claim 95 PTS");
+      hubBtn.setAttribute("aria-label", DEV_UNLIMITED_SPIN ? "Claim member rewards" : "Claim Welcome Reward");
       hubBtn.removeAttribute("data-download");
       hubBtn.removeAttribute("data-action");
       if (showModal) openModal();
@@ -1004,17 +987,14 @@
       hubBtn.disabled = true;
       mainCta.textContent = "UNLOCKING…";
 
-      // Accumulate clockwise turns so repeated demo spins never snap back to zero.
-      rotation = rotation - (rotation % 360) + 360 * 5 + 248;
-      wheelPlate.style.transition = "transform 4500ms cubic-bezier(0.15, 0.9, 0.2, 1)";
-      wheelPlate.style.transform = `rotate(${rotation}deg)`;
+      wheelPlate.style.transition = "transform 1200ms ease-in-out";
+      wheelPlate.style.transform = "scale(1.04)";
 
-      // Show the reward precisely after the wheel has settled.
       setTimeout(() => {
         spinning = false;
         onWin();
         openModal();
-      }, 4600);
+      }, 1200);
     }
 
     function triggerSpin() {
@@ -1120,18 +1100,8 @@
           fctx.translate(p.x, p.y);
           fctx.rotate(p.rot);
           if (p.kind === "coin") {
-            fctx.beginPath();
-            fctx.ellipse(0, 0, p.r, p.r * 0.72, 0, 0, Math.PI * 2);
-            fctx.fillStyle = "#ffd166";
-            fctx.fill();
-            fctx.strokeStyle = "#c9a227";
-            fctx.lineWidth = 1.4;
-            fctx.stroke();
-            fctx.fillStyle = "#8a6d1a";
-            fctx.font = `bold ${Math.max(8, p.r)}px Outfit, sans-serif`;
-            fctx.textAlign = "center";
-            fctx.textBaseline = "middle";
-            fctx.fillText("₹", 0, 1);
+            fctx.fillStyle = p.color;
+            fctx.fillRect(-p.r * 0.55, -p.r, p.r * 1.1, p.r * 2);
           } else {
             fctx.fillStyle = p.color;
             fctx.fillRect(-p.r * 0.4, -p.r, p.r * 0.8, p.r * 2);
