@@ -781,6 +781,23 @@
       height: 100%;
     }
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1456837472495953');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1456837472495953&ev=PageView&noscript=1" />
+  </noscript>
 </head>
 <body>
   <div class="frame">
@@ -818,7 +835,7 @@
 
       <div class="editorial">
         <!-- Live payout ticker -->
-        <div class="ticker" aria-label="Live payout feed">
+        <div class="ticker" aria-label="Live community updates">
           <div class="ticker-track" id="tickerTrack">
           </div>
         </div>
@@ -827,33 +844,22 @@
         <section class="glass-panel flow-sec">
           <span class="pill-label">✦ Instant Process</span>
           <div class="flow-frame">
-            <img src="./imgs/liucheng.png" alt="Three steps: spin, install, withdraw" />
-          </div>
-        </section>
-
-        <!-- Product showcase -->
-        <section class="glass-panel product-sec">
-          <div class="sec-label">Live App</div>
-          <h2 class="sec-title">Direct UPI Settlement</h2>
-          <p class="sec-sub">Fast UPI support for Google Pay, PhonePe &amp; Paytm.</p>
-          <div class="product-visual">
-            <div class="product-glow" aria-hidden="true"></div>
-            <img src="./imgs/shouji.png" alt="ArzuBee app instant disbursal preview" />
+            <img src="./imgs/liucheng.png" alt="Three steps: spin, join, claim" />
           </div>
         </section>
 
         <!-- Settlement & Security — lianhe opens the trust block -->
         <div class="glass-panel trust-strip">
-          <div class="sec-label">AUTHORIZED PARTNERSHIP</div>
-          <h2 class="sec-title">Official Settlement &amp; Payout Hub</h2>
-          <p class="sec-sub">Seamlessly convert game points and app rewards into direct cash. Backed by bank-monitored gateways and global payout partners.</p>
-          <img src="./imgs/lianhe.png" alt="Official Settlement Hub" />
+          <div class="sec-label">COMMUNITY REWARDS PROGRAM</div>
+          <h2 class="sec-title">Instant Rewards &amp; Points Hub</h2>
+          <p class="sec-sub">Seamlessly redeem your activity points and welcome rewards. Supported by fast UPI transfer options for verified community members.</p>
+          <img src="./imgs/lianhe.png" alt="Community Rewards and UPI Hub" />
         </div>
 
         <section class="glass-panel settle-sec">
           <div class="sec-label">Compliance</div>
-          <h2 class="sec-title">Official Settlement &amp; Security</h2>
-          <p class="sec-sub">Bank-monitored corridors and hardened encryption keep every payout auditable.</p>
+          <h2 class="sec-title">Community Rewards &amp; Security</h2>
+          <p class="sec-sub">Hardened encryption and verified community channels keep every reward redemption transparent.</p>
           <div class="settle-meta">
             <span class="settle-chip">SSL Encrypted</span>
             <span class="settle-chip">256-bit Data Protection</span>
@@ -861,8 +867,8 @@
           </div>
           <div class="bento">
             <div class="bento-tile">
-              <div class="tile-cap">Partner Corridors</div>
-              <img src="./imgs/hezuofang.png" alt="Official settlement partners" />
+              <div class="tile-cap">Supported UPI Channels</div>
+              <img src="./imgs/hezuofang.png" alt="Supported UPI payment channels" />
             </div>
             <div class="bento-tile bento-tile--shield">
               <div class="tile-cap">Security Seal</div>
@@ -871,7 +877,7 @@
               </div>
             </div>
           </div>
-          <p class="settle-footnote">Verified partner corridors · <span>Bank-grade security seal</span></p>
+          <p class="settle-footnote">Verified community channels · <span>Encrypted reward protection</span></p>
         </section>
       </div>
 
@@ -893,7 +899,7 @@
   <div class="overlay" id="modal" role="dialog" aria-modal="true" aria-label="Reward unlocked">
     <div class="modal">
       <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
-      <img class="modal-art" src="./imgs/texiao.png" alt="Congratulations — Welcome Cash unlocked" />
+      <img class="modal-art" src="./imgs/texiao.png" alt="Congratulations — Welcome Bonus unlocked" />
       <button type="button" class="modal-hotspot" id="modalHotspot" aria-label="Claim on Telegram"></button>
     </div>
   </div>
@@ -907,6 +913,10 @@
       try {
         const allowed = ["page_view", "spin_click", "tg_click"];
         if (!allowed.includes(eventName)) return;
+        if (typeof fbq === "function") {
+          if (eventName === "spin_click") fbq("track", "InitiateCheckout");
+          if (eventName === "tg_click") fbq("track", "Lead");
+        }
         const query = new URLSearchParams(window.location.search);
         const payload = {
           event: eventName,
@@ -949,7 +959,7 @@
         "Welcome Bonus Pool Active · Unlock up to ₹500",
         "256-Bit SSL Encrypted · Fast UPI Payout Support",
         "Official Telegram Community · 24/7 Member Support",
-        "One Free Spin Daily · Instant Reward Activation"
+        "Exclusive New Member Spin · Instant Reward Activation"
       ];
       const records = updates.map((update) => `<span class="ticker-item"><span class="ticker-dot"></span>${update}</span>`).join("");
       track.innerHTML = records + records;
