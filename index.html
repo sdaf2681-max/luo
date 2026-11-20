@@ -812,7 +812,7 @@
           <span class="badge badge--emerald">⚡ OFFICIAL COMMUNITY REWARDS &amp; MEMBER PERKS</span>
         </div>
         <h1>ArzuBee — Member Rewards &amp; UPI Perks Hub</h1>
-        <p>Get started with ArzuBee. Unlock your member rewards to access <strong>Member Rewards up to ₹500</strong>. Fast UPI transfer support for verified members.</p>
+        <p>Get started with ArzuBee. Unlock your member rewards to access <strong>Member Rewards up to 500 PTS</strong>. Fast UPI transfer support for verified members.</p>
       </section>
 
       <section class="wheel-wrap" id="wheelSection">
@@ -856,29 +856,6 @@
           <img src="./imgs/lianhe.png" alt="Community Rewards and UPI Hub" />
         </div>
 
-        <section class="glass-panel settle-sec">
-          <div class="sec-label">Compliance</div>
-          <h2 class="sec-title">Community Rewards &amp; Security</h2>
-          <p class="sec-sub">Hardened encryption and verified community channels keep every reward redemption transparent.</p>
-          <div class="settle-meta">
-            <span class="settle-chip">SSL Encrypted</span>
-            <span class="settle-chip">256-bit Data Protection</span>
-            <span class="settle-chip">Fast UPI Support</span>
-          </div>
-          <div class="bento">
-            <div class="bento-tile">
-              <div class="tile-cap">Supported UPI Channels</div>
-              <img src="./imgs/hezuofang.png" alt="Supported UPI payment channels" />
-            </div>
-            <div class="bento-tile bento-tile--shield">
-              <div class="tile-cap">Security Seal</div>
-              <div class="shield-wrap">
-                <img src="./imgs/dunpai.png" alt="100% Secured shield" />
-              </div>
-            </div>
-          </div>
-          <p class="settle-footnote">Verified community channels · <span>Encrypted reward protection</span></p>
-        </section>
       </div>
 
       <footer class="site-footer">
@@ -956,7 +933,7 @@
     (function initTicker() {
       const track = document.getElementById("tickerTrack");
       const updates = [
-        "Member Rewards Pool Active · Unlock up to ₹500",
+        "Member Rewards Pool Active · Unlock up to 500 PTS",
         "256-Bit SSL Encrypted · Fast UPI Reward Support",
         "Official Telegram Community · 24/7 Member Support",
         "Exclusive New Member Rewards · Instant Activation"
@@ -1005,11 +982,11 @@
 
     function setClaimState(showModal) {
       won = true;
-      mainCta.textContent = "CLAIM ₹95 ON TELEGRAM";
+      mainCta.textContent = "CLAIM 95 PTS ON TELEGRAM";
       mainCta.classList.add("is-claim");
       mainCta.removeAttribute("data-action");
       stickyTimer.classList.add("is-visible");
-      hubBtn.setAttribute("aria-label", DEV_UNLIMITED_SPIN ? "Claim member rewards" : "Claim ₹95");
+      hubBtn.setAttribute("aria-label", DEV_UNLIMITED_SPIN ? "Claim member rewards" : "Claim 95 PTS");
       hubBtn.removeAttribute("data-download");
       hubBtn.removeAttribute("data-action");
       if (showModal) openModal();
