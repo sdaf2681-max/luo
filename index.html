@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#09090b" />
-  <meta name="description" content="Welcome to ArzuBee India. Access smart mobile utilities, setup guides, and welcome perks in our official Telegram community." />
-  <title>Welcome to ArzuBee India</title>
+  <meta name="description" content="Welcome to the official ArzuBee community. Join our launch celebration for a Starter Kit, setup video, and VIP support." />
+  <title>ArzuBee Official Welcome Celebration</title>
   <link rel="icon" type="image/png" href="./imgs/tubiao.png" />
   <link rel="apple-touch-icon" href="./imgs/tubiao.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
     button, a { font: inherit; }
     a { color: inherit; }
     .frame { position: relative; isolation: isolate; width: 100%; max-width: 430px; min-height: 100vh; margin: 0 auto; overflow: hidden; background: var(--bg); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .75); }
-    .frame::before { position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse 90% 32% at 50% 0%, rgba(245, 158, 11, .12), transparent 70%), radial-gradient(ellipse 60% 28% at 100% 62%, rgba(251, 191, 36, .045), transparent 72%); content: ""; pointer-events: none; }
+    .frame::before { position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse 95% 38% at 50% 0%, rgba(251, 191, 36, .18), rgba(220, 38, 38, .08) 48%, transparent 75%), radial-gradient(ellipse 60% 28% at 100% 62%, rgba(251, 191, 36, .045), transparent 72%); content: ""; pointer-events: none; }
     .content { padding: 0 20px 32px; }
     .promo-strip { margin: 0 -20px; padding: 11px 16px; border-bottom: 1px solid rgba(251, 191, 36, .28); background: rgba(245, 158, 11, .11); color: #fcd878; font-size: 10px; font-weight: 700; line-height: 1.45; text-align: center; }
     .header { display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 12px; }
@@ -42,13 +42,18 @@
     h1 { max-width: 390px; margin: 0; color: #fffaf0; font-size: clamp(32px, 9vw, 40px); line-height: 1.12; font-weight: 700; }
     .hero p { max-width: 370px; margin: 16px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
     .trust-line { margin-top: 16px; color: #e7d8b5; font-size: 11px; line-height: 1.6; font-weight: 500; }
-    .welcome-pass { position: relative; margin: 8px 0 30px; padding: 19px; border: 1px solid rgba(251, 191, 36, .28); border-radius: 10px; background: linear-gradient(145deg, rgba(35, 29, 19, .96), rgba(16, 15, 13, .98)); box-shadow: inset 0 1px rgba(255, 244, 214, .08), 0 18px 44px rgba(0, 0, 0, .36); }
+    .welcome-pass { position: relative; overflow: hidden; margin: 8px 0 30px; padding: 19px; border: 1px solid rgba(251, 191, 36, 0.35); border-radius: 14px; background: linear-gradient(180deg, rgba(15, 14, 12, 0.45) 0%, rgba(12, 11, 9, 0.85) 100%), url('./imgs/kapian.png') center / cover no-repeat; box-shadow: inset 0 1px rgba(255, 244, 214, .1), 0 18px 44px rgba(0, 0, 0, .4), 0 0 26px rgba(245, 158, 11, .1); }
     .channel-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #fff4d6; font-size: 12px; font-weight: 700; letter-spacing: .09em; }
     .verified { display: inline-flex; align-items: center; padding: 6px 8px; border: 1px solid rgba(251, 191, 36, .3); border-radius: 20px; background: rgba(245, 158, 11, .12); color: var(--gold-bright); font-size: 9px; font-weight: 700; letter-spacing: .05em; white-space: nowrap; }
-    .task-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 19px; }
-    .task-row { display: flex; min-width: 0; min-height: 112px; flex-direction: column; align-items: flex-start; gap: 9px; padding: 12px 9px; border: 1px solid rgba(251, 191, 36, .15); border-radius: 7px; background: rgba(9, 9, 11, .55); color: #f7e9c5; font-size: 11px; line-height: 1.35; }
-    .task-check { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border: 1px solid rgba(251, 191, 36, .35); border-radius: 50%; background: rgba(245, 158, 11, .1); color: var(--gold-bright); font-size: 16px; }
-    .cta { display: flex; min-height: 52px; align-items: center; justify-content: center; padding: 12px 14px; border: 1px solid rgba(251, 191, 36, .55); border-radius: 8px; background: linear-gradient(135deg, #fbbf24, #d97706); color: #09090b; font-size: 11px; font-weight: 800; letter-spacing: .025em; text-align: center; text-decoration: none; box-shadow: 0 0 24px rgba(245, 158, 11, .17); animation: gold-glow 2.8s ease-in-out infinite; transition: filter .18s ease, transform .18s ease; }
+    .gift-stage { position: relative; min-height: 218px; margin: 18px -19px 0; padding: 0 19px; }
+    .unsealed-perks { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--gold-bright); text-align: center; }
+    .unsealed-heading { display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .unsealed-heading img { width: 44px; height: 44px; object-fit: contain; mix-blend-mode: lighten; }
+    .unlocked-title { color: #fff0bf; font-size: 15px; font-weight: 800; }
+    .perk-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; color: #f7d777; font-size: 10px; font-weight: 600; }
+    .perk-list span { padding: 7px 9px; border: 1px solid rgba(255, 232, 170, .2); border-radius: 999px; background: rgba(255, 246, 220, .08); box-shadow: inset 0 1px rgba(255, 255, 255, .08); backdrop-filter: blur(8px); white-space: nowrap; }
+    .cta { display: flex; min-height: 52px; align-items: center; justify-content: center; padding: 12px 14px; border: 1px solid rgba(251, 191, 36, .55); border-radius: 12px; background: linear-gradient(135deg, #fbbf24, #d97706); color: #09090b; font-size: 11px; font-weight: 800; letter-spacing: .025em; text-align: center; text-decoration: none; box-shadow: 0 0 24px rgba(245, 158, 11, .17); animation: gold-glow 2.8s ease-in-out infinite; transition: filter .18s ease, transform .18s ease; }
+    .welcome-pass .cta { border-color: rgba(251, 191, 36, .75); background: linear-gradient(135deg, #fbbf24, #d97706); color: #09090b; box-shadow: 0 0 24px rgba(245, 158, 11, .28); animation: gold-glow 2.8s ease-in-out infinite; }
     .cta:hover { filter: brightness(1.07); transform: translateY(-1px); }
     .welcome-pass > .cta { margin-top: 17px; }
     .pass-note { margin: 10px 0 0; color: #a99c83; font-size: 10px; line-height: 1.5; text-align: center; }
@@ -67,6 +72,7 @@
     .dialog-copy p { margin: 16px 0 0; }
     @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 10px rgba(251, 191, 36, .65); } 50% { opacity: .55; box-shadow: 0 0 3px rgba(251, 191, 36, .4); } }
     @keyframes gold-glow { 0%, 100% { box-shadow: 0 0 18px rgba(245, 158, 11, .14); } 50% { box-shadow: 0 0 28px rgba(245, 158, 11, .3); } }
+    @keyframes gift-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
   </style>
   <script>
@@ -81,25 +87,26 @@
     <div class="content">
       <header class="header">
         <img class="logo" src="./imgs/logo_arzubee.png" alt="ArzuBee" />
-        <span class="status">Official India Hub</span>
+        <span class="status">Official Launch Celebration</span>
       </header>
 
-      <div class="promo-strip">🎉 INDIA LAUNCH EVENT: New Member Welcome Kits Are Now Live</div>
+      <div class="promo-strip">🎊 ARZUBEE WELCOME FESTIVAL: New Member Celebration Gifts Are Live!</div>
 
       <section class="hero" aria-labelledby="pageTitle">
-        <div class="eyebrow">LIMITED INDIA LAUNCH · INVITE ONLY</div>
-        <h1 id="pageTitle">Claim Your ArzuBee India Welcome Pass</h1>
-        <p>Join our official Telegram hub today to unlock your New Member Starter Kit, 1-minute setup walkthrough, and priority 24/7 admin support.</p>
+        <div class="eyebrow">ARZUBEE OFFICIAL WELCOME EVENT</div>
+        <h1 id="pageTitle">Celebrate With ArzuBee: Claim Your Welcome Gift</h1>
+        <p>Welcome to the ArzuBee community! Join our official Telegram channel during our grand launch celebration to unlock your Starter Kit, 1-minute setup video, and 24/7 VIP support.</p>
       </section>
 
       <section class="welcome-pass" aria-label="Official member welcome pass">
-        <div class="channel-top"><span>OFFICIAL MEMBER PASS</span><span class="verified">ACTIVE · FREE</span></div>
-        <div class="task-list">
-          <div class="task-row"><span class="task-check" aria-hidden="true">✦</span><span><strong>Starter Kit</strong><br />New member welcome guide</span></div>
-          <div class="task-row"><span class="task-check" aria-hidden="true">▶</span><span><strong>Fast Setup</strong><br />1-minute setup video</span></div>
-          <div class="task-row"><span class="task-check" aria-hidden="true">✉</span><span><strong>VIP Support</strong><br />One-to-one help @ARZUBEEhelp</span></div>
+        <div class="channel-top"><span>NEW MEMBER WELCOME GIFT</span><span class="verified">FESTIVAL · FREE</span></div>
+        <div class="gift-stage">
+          <div class="unsealed-perks">
+            <div class="unsealed-heading"><img src="./imgs/hezi.png" alt="Welcome Gift" /><div class="unlocked-title">Your Joining Gift Is Ready</div></div>
+            <div class="perk-list"><span>🎁 New User Bonus</span><span>⚡ Easy 1-Min Start</span><span>💬 24/7 Live Support</span></div>
+          </div>
         </div>
-        <a class="cta" data-cta href="https://t.me/+wGJYJh0fz505NGMx" target="_blank" rel="noopener noreferrer">CLAIM WELCOME KIT ON TELEGRAM →</a>
+        <a class="cta" data-cta href="https://t.me/ArzuBeeIndia/21" target="_blank" rel="noopener noreferrer">CLAIM WELCOME GIFT ON TELEGRAM →</a>
         <p class="pass-note">Instant access inside official channel · No fees required</p>
       </section>
 
@@ -122,7 +129,7 @@
   </div>
 
   <script>
-    const TELEGRAM_SUPPORT_URL = "https://t.me/+wGJYJh0fz505NGMx";
+    const TELEGRAM_SUPPORT_URL = "https://t.me/ArzuBeeIndia/21";
     const EVENT_NAMES = new Set(["page_view", "feature_click", "contact_click"]);
 
     function trackEvent(eventName) {
